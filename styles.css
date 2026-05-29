@@ -26,7 +26,7 @@ body {
   background: var(--black);
   font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
   line-height: 1.75;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 body.is-lightbox-open {
@@ -164,9 +164,10 @@ p {
 
 h1 {
   margin-bottom: 16px;
-  font-size: clamp(44px, 10vw, 92px);
+  font-size: clamp(40px, 6.7vw, 78px);
   line-height: 1.02;
   letter-spacing: 0;
+  white-space: nowrap;
   text-shadow: 0 10px 34px rgba(0, 0, 0, 0.65);
 }
 
@@ -186,9 +187,13 @@ h3 {
 .hero-lead {
   margin-bottom: 22px;
   color: #f6f6f6;
-  font-size: clamp(20px, 4vw, 30px);
+  font-size: clamp(20px, 2.7vw, 28px);
   font-weight: 950;
   line-height: 1.5;
+}
+
+.hero-lead span {
+  display: block;
 }
 
 .hero-note {
@@ -197,7 +202,11 @@ h3 {
   color: #e8e8e8;
   font-size: 16px;
   font-weight: 800;
-  line-height: 1.72;
+  line-height: 1.65;
+}
+
+.hero-note p {
+  margin-bottom: 4px;
 }
 
 .hero-actions {
@@ -491,6 +500,19 @@ h3 {
   .hero-copyblock {
     width: 100%;
     min-width: 0;
+  }
+
+  h1 {
+    font-size: clamp(38px, 11vw, 48px);
+  }
+
+  .hero-lead span {
+    display: inline;
+  }
+
+  .hero-lead span + span::before {
+    content: "\A";
+    white-space: pre;
   }
 }
 
